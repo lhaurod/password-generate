@@ -1,28 +1,26 @@
 // Assignmet code here
+// function to generate a random numeric value
+var randomInt = function(min, max) {
+  var value = Math.floor(Math.random() * (max - min) + min);
 
-function randomInt(min, max) {
-  if (!max) {
-    max = min
-    min = 0
-  }
-  var random = Math.random()
-  return Math.floor(min*(1-random)+random*max)
+  return value;
 }
 
-
-
+// randomly change the item in the list
 function getRandomItem(list) {
   return list[randomInt(list.length)]
 }
 
+// function to generate password 
 function generatePassword() {
 
-  while (true){
+   while (true){
 
-    var userInput = window.prompt( "What is your desired length for the password?" )
+   // ask the user if their desire legnth for the password 
+   var userInput = window.prompt( "What is your desired length for the password?" )
 
     if (userInput === null) {
-      return
+      return userInput
     }
 
     var passwordLength = parseInt(userInput)
@@ -38,12 +36,14 @@ function generatePassword() {
   }
   
 
-
+  // user password criteria
   var userWantsLowercase = window.confirm("Would you like to include at least one Lowercase in your password?")
   var userWantsUppercase = window.confirm("Would you like to include at least one Uppercase in your password?")
   var userWantsNumericvalues = window.confirm("Would you like to include at least one Numeric Value in your password?")
   var userWantsSpecialcharacters = window.confirm("Would you like to include at least one Special Character in your password?")
-
+  
+  
+  // list of special characters to include in password 
   var lowercaseList =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   var numericvaluesList =["0","1","2","3","4","5","6","7","8","9"];
   var specialcharactersList =["!","@","#","$","%","^","&","*"];
@@ -51,7 +51,7 @@ function generatePassword() {
 
   var optionsCart =[]
 
-  for (var i = 0; i < lowercaselist.length; i++) {
+  for (var i = 0; i < lowercaseList.length; i++) {
     uppercaseList[i] = lowercaseList[i].toUpperCase()
   }
 
@@ -74,7 +74,7 @@ function generatePassword() {
   if (optionsCart.length === 0) {
      optionsCart.push(lowercaseList);
   }
-
+  // set password
   var generatedPassword = ""
 
   for (var i = 0; i < passwordLength; i++) {
