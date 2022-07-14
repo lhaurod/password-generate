@@ -8,16 +8,16 @@ var randomInt = function(min, max) {
 
 // randomly change the item in the list
 function getRandomItem(list) {
-  return list[randomInt(list.length)]
+  return list[randomInt(0,list.length-1)];
 }
 
 // function to generate password 
 function generatePassword() {
 
-   while (true){
+  // ask the user if their desire legnth for the password 
+  var userInput = window.prompt( "What is your desired length for the password?" )
 
-   // ask the user if their desire legnth for the password 
-   var userInput = window.prompt( "What is your desired length for the password?" )
+  while (true){
 
     if (userInput === null) {
       return userInput
@@ -27,8 +27,10 @@ function generatePassword() {
 
     if (isNaN(passwordLength)) {
       window.alert("Not a number!")
+      return 
     } else if (passwordLength < 8 || passwordLength > 128) {
       window.alert("Password should be at least 8 characters and no more than 128 characters.")
+      return
     } else {
       break
     }
@@ -45,7 +47,7 @@ function generatePassword() {
   
   // list of special characters to include in password 
   var lowercaseList =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  var numericvaluesList =["0","1","2","3","4","5","6","7","8","9"];
+  var numericvaluesList =[0,1,2,3,4,5,6,7,8,9];
   var specialcharactersList =["!","@","#","$","%","^","&","*"];
   var uppercaseList =[];
 
@@ -74,11 +76,13 @@ function generatePassword() {
   if (optionsCart.length === 0) {
      optionsCart.push(lowercaseList);
   }
+
   // set password
   var generatedPassword = ""
 
   for (var i = 0; i < passwordLength; i++) {
     var randomList = getRandomItem(optionsCart);
+    console.log(randomList)
     var randomChar = getRandomItem(randomList);
     generatedPassword += randomChar;
   }
