@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-# password-generate
->>>>>>> 435498ae03b0d1263f36f38c8e7d985a2cae10f9
 # Password Generator Starter Code
 
 # Lhaura Rodriguez
@@ -31,8 +27,4 @@ Screenshots
 
 
 ## Contribution
-<<<<<<< HEAD
 Made with ❤️ by [Lhaura Rodriguez]
-=======
-Made with ❤️ by [Lhaura Rodriguez]
->>>>>>> 435498ae03b0d1263f36f38c8e7d985a2cae10f9
